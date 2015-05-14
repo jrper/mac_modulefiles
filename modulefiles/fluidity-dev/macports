@@ -5,10 +5,10 @@ proc ModulesHelp { } {
 }
 module-whatis "This module sets the system up to build fluidity using packages managed using Macports"
 
-setenv OMPI_F77 gfortran-mp-4.7
-setenv OMPI_FC gfortran-mp-4.7
-setenv OMPI_CXX g++-mp-4.7
-setenv OMPI_CC gcc-mp-4.7
+setenv OMPI_F77 gfortran-mp-4.9
+setenv OMPI_FC gfortran-mp-4.9
+setenv OMPI_CXX g++-mp-4.9
+setenv OMPI_CC gcc-mp-4.9
 
 setenv F77 mpif77
 setenv FC  mpif90
