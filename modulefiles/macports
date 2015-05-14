@@ -1,0 +1,11 @@
+#%Module -*- tcl -*-
+## This is a module to access something
+proc ModulesHelp { } {
+        puts stderr "This module sets the system up to use macports packages"
+}
+module-whatis "This module sets the system up to use macports packages"
+conflict fink
+
+prepend-path PATH "/opt/local/bin:/opt/local/sbin"
+append-path PATH "/opt/local/lib/openmpi/bin"
+prepend-path MANPATH "/opt/local/share/man"

@@ -1,0 +1,43 @@
+### Makefile.in --- 
+
+## Author: jrper@ic.ac.uk
+## Version: $Id: Makefile,v 0.0 2015/05/14 00:18:32 origimbo Exp $
+## Keywords: 
+## X-URL: 
+
+SHELL = /bin/sh
+
+PREFIX = @prefix@
+
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = $(INSTALL)
+INSTALL_DATA = ${INSTALL} -m 644
+
+EXCLUDE_FROM_INSTALL = fink
+
+POSSIBLE_TARGETS = $(shell cd modulefiles; find . -type f -mindepth 1 -maxdepth 4)
+
+INSTALL_TARGETS = $(filter-out $(addprefix ./,$(EXCLUDE_FROM_INSTALL)), $(filter-out , $(POSSIBLE_TARGETS) ) )
+
+default: all
+
+all :
+
+
+clean : 
+	@ rm -f *~ modulefiles/*~ modulefiles/*/*~ mod_files.tar
+
+install : clean
+	@mkdir -p  $(DESTDIR)$(PREFIX)
+	@tar -cf mod_files.tar -C modulefiles $(INSTALL_TARGETS)
+	@tar -xpf mod_files.tar -C $(DESTDIR)$(PREFIX)
+
+list : clean
+	@echo $(INSTALL_TARGETS)
+
+.PHONY : install
+
+
+
+
+### Makefile ends here

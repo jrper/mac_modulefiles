@@ -1,0 +1,38 @@
+#%Module -*- tcl -*-
+## This is a module to access something
+proc ModulesHelp { } {
+        puts stderr "This module sets the system up to use fink packages"
+}
+module-whatis "This module sets the system up to use fink packages"
+conflict macports
+
+set oldenv env	
+if [module-info mode load] {
+    puts stdout "test -r /sw/bin/init.sh && . /sw/bin/init.sh"
+}
+set newenv env
+setenv PACKAGEMANAGER fink
+global bkey
+foreach {key value} [array get $oldenv] {
+   if ![string equal $key "module"] {
+      setenv "UNFINKED$key" $value
+   }	
+   if [string equal -length 8 $key UNFINKED] {
+       if [module-info mode remove] {
+          set bkey [string range $key 8 [expr [string length $key]-1]]
+	  unsetenv $bkey $value	
+       }
+   }
+   
+}
+foreach {key value} [array get $newenv] {
+   if ![string equal $key "module"] {
+      setenv "FINKED$key" $value
+   }
+}
+
+
+
+
+
+
