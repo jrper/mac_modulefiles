@@ -18,6 +18,6 @@ setenv CC  mpicc-openmpi-gcc49
 setenv FCFLAGS "-I/opt/local/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7/ -I/opt/local/include/vtk-5.10 -I/opt/local/include"
 setenv CFLAGS "-I/opt/local/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7/ -I/opt/local/include/vtk-5.10 -I/opt/local/include"
 setenv CXXFLAGS "-I/opt/local/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7/ -I/opt/local/include/vtk-5.10 -I/opt/local/include"
-setenv LDFLAGS "-L/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib -lpython2.7 -L/opt/local/lib/vtk-5.10 -L/opt/local/lib"
+setenv LDFLAGS "-L/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib -lpython2.7 -L/opt/local/lib/vtk-5.10 -L/opt/local/lib -lmpi_cxx"
 
 setenv PETSC_DIR /opt/local/lib/petsc-fluidity
