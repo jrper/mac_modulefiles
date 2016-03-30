@@ -1,0 +1,11 @@
+#%Module -*- tcl -*-
+## This is a module to access something
+proc ModulesHelp { } {
+        puts stderr "This module sets the system up to build fluidity using packages managed using Macports"
+}
+module-whatis "This module sets the system up to build fluidity using packages managed using Macports"
+
+setenv OMPI_F77 gfortran
+setenv OMPI_FC gfortran
+setenv OMPI_CXX g++-5
+setenv OMPI_CC gcc-5
