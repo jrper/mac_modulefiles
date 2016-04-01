@@ -5,7 +5,12 @@ proc ModulesHelp { } {
 }
 module-whatis "This module sets the system up to build fluidity using packages managed using Macports"
 
-setenv OMPI_F77 gfortran
-setenv OMPI_FC gfortran
-setenv OMPI_CXX g++-5
-setenv OMPI_CC gcc-5
+setenv PETSC_DIR "/brew/opt/petsc-fluidity"
+
+setenv CC mpicc-5
+setenv CXX mpicxx-5
+setenv F77 mpif90
+setenv FC mpif90
+
+setenv CPPFLAGS "-I/brew/include -I/brew/opt/vtk5/include/vtk-5.10"
+setenv LDFLAGS "-L/brew/lib -L/brew/opt/vtk5/lib/vtk-5.10 -lvtkIO -lvtkHybrid -lvtkGraphics -lvtkRendering -lvtkFiltering -lvtkCommon"
